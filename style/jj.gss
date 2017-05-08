@@ -5,9 +5,9 @@
 
 #name[top] == (#top-section[height] / 2) - (#name[intrinsic-height] / 2);
 
-@if ::window[width] < 960 {
-	#top-section[height] == #name[intrinsic-height] + 10;
+#top-section[height] == #name[intrinsic-height] + 10 !strong;
 
+@if ::window[width] < 960 {
 	// For some reason #name's center doesn't work here
 	#name[left] == (::window[width] / 2) - (#name[intrinsic-width] / 2);
 
@@ -18,19 +18,33 @@
 	#name[font-size] == 25;
 	#view-resume[font-size] == #name[font-size] * 0.85;
 
+	#timeline[bottom] == #view-resume[top];
 } @else {
-	#top-section[height] == #name[intrinsic-height] + 10;
 	#name[left] == ::window[left] + 20;
 
 	#view-resume[top] == (#top-section[height] / 2) - (#view-resume[height] / 2);
 	#view-resume[right] == ::window[right] - 20;
 	#view-resume[height] == #name[intrinsic-height];
 	#view-resume[width] == 200;
+
+	#timeline[bottom] == ::window[bottom];
 }
 
 #name[size] == #name[intrinsic-size];
 #view-resume[size] == #view-resume[computed-size];
 (#view-resume span)[size] == (#view-resume span)[intrinsic-size];
 
+#top-section[top] == ::window[top];
 #top-section[height] == #top-section[computed-height];
 #top-section[width] == ::window[width];
+
+#timeline[width] == ::window[width];
+#timeline[left] == ::window[left];
+
+(#timeline #line)[width] == 2;
+(#timeline #line)[height] == #timeline[height];
+(#timeline #line)[top] == #timeline[top];
+(#timeline #line)[center] == #timeline[center];
+
+#timeline[top] == #top-section[bottom];
+#timeline[height] == ::window[height] !weak;

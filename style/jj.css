@@ -3,10 +3,10 @@
 
 html {
 	background: #eee;
+	font-family: 'Titillium Web', sans-serif;
 }
 
 #name {
-	font-family: 'Titillium Web', sans-serif;
 	font-size: 18pt;
 	color: #333;
 	font-weight: bold;
@@ -16,7 +16,6 @@ html {
 #view-resume {
 	background: #333;
 	color: #ddd;
-	font-family: 'Titillium Web', sans-serif;
 	font-size: 10pt;
 	text-transform: uppercase;
 }
@@ -27,4 +26,8 @@ code {
 
 #top-section {
 	border-bottom: 1px solid #333;
+}
+
+#timeline #line {
+	border-left: 1px dashed #333;
 }
