@@ -25,8 +25,14 @@ code {
 	font-family: 'Inconsolata', monospace;
 }
 
+#top-section, #view-resume {
+	box-shadow: 0px 1px 50px #333;
+}
+
 #top-section {
+	background: #FFF;
 	border-bottom: 1px solid #333;
+	z-index: 100;
 }
 
 #timeline {
@@ -37,17 +43,15 @@ code {
 	border-left: 1px dashed #333;
 }
 
-.event {
+.event-line > .event {
 	background: #ddd;
 	border-radius: 4px;
+	overflow: hidden;
 }
 
 .event > .date {
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
 	background: #333;
 	color: #999;
-	font-family: 'Inconsolata', monospace;
 	font-size: 10px;
 	padding: 2px 5px;
 }
@@ -68,9 +72,14 @@ code {
 }
 
 .event .repository i {
+	color: #ccc;
 	font-size: 30pt;
-	background: #AAA;
+	background: #444;
 	vertical-align: middle;
 	text-align: center;
-	border-bottom-left-radius: 4px;
+}
+
+.event-line > .dot {
+	background: #333;
+	border-radius: 11px;
 }

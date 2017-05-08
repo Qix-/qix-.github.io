@@ -37,51 +37,70 @@
 
 (body .event:first)[top] == #timeline[top] + 10;
 
+#events[bottom] == (.event:last)[bottom] + 10;
+
 body {
-	.event {
-		@if ::window[width] < 960 {
-			width: == ::window[width] - 20;
-			center-x: == ::window[center-x];
-		} @else {
-			width: <= 400;
-			&.left[right] == ::window[center-x] - 20;
-			&.right[left] == ::window[center-x] + 20;
+	.event-line {
+		.dot {
+			size: == 11;
+			center-y: == (^ > .event)[center-y];
+			center-x: == ($ #timeline)[center-x];
 		}
 
-		> .date {
-			top: == ^[top];
-			left: == ^[left];
-			width: == ^[width];
-			height: == 15;
-		}
+		.event {
+			@if ::window[width] < 960 {
+				width: == ::window[width] - 20;
+				center-x: == ::window[center-x];
+			} @else {
+				width: <= 400;
+				&.left[right] == ::window[center-x] - 20;
+				&.right[left] == ::window[center-x] + 20;
+			}
 
-		> .content {
-			width: == ^[width];
-			left: == ^[left];
-			top: == (^ .date)[bottom];
-			bottom: == ^[bottom];
-		}
+			> .dot {
+				size: == 10;
+			}
 
-		> .repository {
-			bottom: == i[bottom];
-
-			i {
+			> .date {
+				top: == ^[top];
 				left: == ^[left];
-				width: == 40;
-				top: == ^[top];
-				height: == 150; // TODO debug
-			}
-
-			.name {
-				left: == (^ i)[right] + 5;
-				height: == 25;
-				top: == ^[top];
-			}
-
-			.description {
-				left: == (^ .name)[left];
+				width: == ^[width];
 				height: == 20;
-				top: == (^ .name)[bottom] + 5;
+			}
+
+			> .content {
+				width: == ^[width];
+				left: == ^[left];
+				top: == (^ .date)[bottom];
+				bottom: == ^[bottom];
+			}
+
+			> .repository {
+				height: == 180;
+
+				i {
+					left: == ^[left];
+					width: == 45;
+					top: == ^[top];
+					bottom: == ^[bottom];
+				}
+
+				.name {
+					left: == (^ i)[right] + 5;
+					height: == 25;
+					top: == ^[top];
+				}
+
+				.description {
+					left: == (^ .name)[left];
+					height: == 30;
+					top: == (^ .name)[bottom] + 5;
+				}
+
+				img {
+					left: == (^ i)[right];
+					top: == (^ .description)[bottom];
+				}
 			}
 		}
 	}
@@ -91,7 +110,7 @@ body {
 #view-resume[size] == #view-resume[computed-size];
 (#view-resume span)[size] == (#view-resume span)[intrinsic-size];
 
-#top-section[height] == #name-title[intrinsic-height] + 10 !strong;
+#top-section[height] == #name-title[intrinsic-height] + 20 !strong;
 #top-section[top] == ::window[top];
 #top-section[height] == #top-section[computed-height];
 #top-section[width] == ::window[width];
