@@ -10,12 +10,14 @@
 
 		<script src="vendor/gss.min.js"></script>
 		<script src="vendor/vue.min.js"></script>
+		<script src="script/jj.js"></script>
 
 		<script>
 			window.engine = new GSS(document);
 		</script>
 
 		<link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web:300" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css" />
 		<link rel="stylesheet" href="vendor/reset.min.css" />
 		<link rel="stylesheet" href="style/jj.css" />
 		<link rel="stylesheet/gss" type="text/gss" href="style/jj.gss" />
@@ -26,23 +28,64 @@
 		     I haven't written HTML in over 7 years. Forgive me. -->
 
 		<div id="top-section">
-			<div id="name">Josh Junon</div>
+			<div id="name-title">Josh Junon</div>
+			<div id="view-resume"><span>View My Resume</span></div>
 		</div>
 
+		<span id="timeline-line"></span>
 		<div id="timeline">
-			<span id="line"></span>
 			<div id="events">
-				{{message}}
+				<div v-bind:class="'event ' + ((i % 2) === 0 ? 'right' : 'left')" v-for="(event, i) in events">
+					<div class="date">{{formatEventDate(event.date)}}<sup>{{formatOrdinal(event.date.getDay())}}</sup>, {{event.date.getFullYear()}}</div>
+					<div v-if="event.type === 'repository'" class="content repository">
+						<a v-bind:href="event.url">
+							<i v-if="event.provider === 'github'" class="fi-social-github"></i>
+							<i v-if="event.provider !== 'github'" class="fi-book"></i>
+							<span class="name">{{event.name}}</span>
+							<span class="description">{{event.description}}</span>
+							<!--<img v-if="event.image" v-bind:src="event.image" />-->
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
-
-		<div id="view-resume"><span>View My Resume</span></div>
 
 		<script>
 			window.app = new Vue({
 				el: '#timeline #events',
 				data: {
-					message: 'Hey!'
+					events: [
+						{
+							type: 'repository',
+							name: 'better-exceptions',
+							provider: 'github',
+							description: 'Pretty and useful exceptions in Python, automatically. This is a test of a slightly longer description.',
+							image: 'https://github.com/Qix-/better-exceptions/raw/master/screenshot.png',
+							date: new Date('March 17, 2017'),
+							stars: 1936,
+							url: 'https://github.com/Qix-/better-exceptions'
+						},
+						{
+							type: 'repository',
+							name: 'better-exceptions',
+							provider: 'github',
+							description: 'Pretty and useful exceptions in Python, automatically.',
+							image: 'https://github.com/Qix-/better-exceptions/raw/master/screenshot.png',
+							date: new Date('March 17, 2017'),
+							stars: 1936,
+							url: 'https://github.com/Qix-/better-exceptions'
+						},
+						{
+							type: 'repository',
+							name: 'better-exceptions',
+							provider: 'github',
+							description: 'Pretty and useful exceptions in Python, automatically.',
+							image: 'https://github.com/Qix-/better-exceptions/raw/master/screenshot.png',
+							date: new Date('March 17, 2017'),
+							stars: 1936,
+							url: 'https://github.com/Qix-/better-exceptions'
+						}
+					]
 				}
 			});
 		</script>

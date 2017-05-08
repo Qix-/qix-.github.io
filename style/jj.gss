@@ -3,48 +3,108 @@
 
 (#view-resume span)[center] == #view-resume[center];
 
-#name[top] == (#top-section[height] / 2) - (#name[intrinsic-height] / 2);
-
-#top-section[height] == #name[intrinsic-height] + 10 !strong;
+#name-title[center-y] == #top-section[center-y];
 
 @if ::window[width] < 960 {
-	// For some reason #name's center doesn't work here
-	#name[left] == (::window[width] / 2) - (#name[intrinsic-width] / 2);
+	.event {
+		(&:next)[top] == &[bottom] + 10;
+	}
+
+	#name-title[center-x] == #top-section[center-x];
 
 	#view-resume[bottom-left] == ::window[bottom-left];
 	#view-resume[width] == ::window[width];
 	#view-resume[height] == (#view-resume span)[intrinsic-height] + 20;
 
-	#name[font-size] == 25;
-	#view-resume[font-size] == #name[font-size] * 0.85;
+	#name-title[font-size] == 25;
+	#view-resume[font-size] == #name-title[font-size] * 0.85;
 
 	#timeline[bottom] == #view-resume[top];
 } @else {
-	#name[left] == ::window[left] + 20;
+	.event {
+		(&:next)[center-y] == &[bottom] + 10;
+	}
 
-	#view-resume[top] == (#top-section[height] / 2) - (#view-resume[height] / 2);
+	#name-title[left] == ::window[left] + 20;
+
+	#view-resume[center-y] == #top-section[center-y];
 	#view-resume[right] == ::window[right] - 20;
-	#view-resume[height] == #name[intrinsic-height];
+	#view-resume[height] == #name-title[intrinsic-height];
 	#view-resume[width] == 200;
 
 	#timeline[bottom] == ::window[bottom];
 }
 
-#name[size] == #name[intrinsic-size];
+(body .event:first)[top] == #timeline[top] + 10;
+
+body {
+	.event {
+		@if ::window[width] < 960 {
+			width: == ::window[width] - 20;
+			center-x: == ::window[center-x];
+		} @else {
+			width: <= 400;
+			&.left[right] == ::window[center-x] - 20;
+			&.right[left] == ::window[center-x] + 20;
+		}
+
+		> .date {
+			top: == ^[top];
+			left: == ^[left];
+			width: == ^[width];
+			height: == 15;
+		}
+
+		> .content {
+			width: == ^[width];
+			left: == ^[left];
+			top: == (^ .date)[bottom];
+			bottom: == ^[bottom];
+		}
+
+		> .repository {
+			bottom: == i[bottom];
+
+			i {
+				left: == ^[left];
+				width: == 40;
+				top: == ^[top];
+				height: == 150; // TODO debug
+			}
+
+			.name {
+				left: == (^ i)[right] + 5;
+				height: == 25;
+				top: == ^[top];
+			}
+
+			.description {
+				left: == (^ .name)[left];
+				height: == 20;
+				top: == (^ .name)[bottom] + 5;
+			}
+		}
+	}
+}
+
+#name-title[size] == #name-title[intrinsic-size];
 #view-resume[size] == #view-resume[computed-size];
 (#view-resume span)[size] == (#view-resume span)[intrinsic-size];
 
+#top-section[height] == #name-title[intrinsic-height] + 10 !strong;
 #top-section[top] == ::window[top];
 #top-section[height] == #top-section[computed-height];
 #top-section[width] == ::window[width];
+#top-section[left] == ::window[left];
 
 #timeline[width] == ::window[width];
 #timeline[left] == ::window[left];
 
-(#timeline #line)[width] == 2;
-(#timeline #line)[height] == #timeline[height];
-(#timeline #line)[top] == #timeline[top];
-(#timeline #line)[center] == #timeline[center];
+#timeline-line[width] == 1;
+#timeline-line[bottom] == #timeline[bottom];
+#timeline-line[top] == #timeline[top];
+#timeline-line[center-x] == #timeline[center-x];
 
 #timeline[top] == #top-section[bottom];
 #timeline[height] == ::window[height] !weak;
+#timeline[width] >= 320;

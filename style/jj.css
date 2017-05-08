@@ -4,9 +4,10 @@
 html {
 	background: #eee;
 	font-family: 'Titillium Web', sans-serif;
+	color: #333;
 }
 
-#name {
+#name-title {
 	font-size: 18pt;
 	color: #333;
 	font-weight: bold;
@@ -28,6 +29,48 @@ code {
 	border-bottom: 1px solid #333;
 }
 
-#timeline #line {
+#timeline {
+	overflow-y: auto;
+}
+
+#timeline-line {
 	border-left: 1px dashed #333;
+}
+
+.event {
+	background: #ddd;
+	border-radius: 4px;
+}
+
+.event > .date {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	background: #333;
+	color: #999;
+	font-family: 'Inconsolata', monospace;
+	font-size: 10px;
+	padding: 2px 5px;
+}
+
+.event > .content > a {
+	color: #333;
+	text-decoration: none;
+}
+
+.event .repository .name {
+	font-weight: bolder;
+	font-size: 15pt;
+}
+
+.event .repository .description {
+	font-size: 10pt;
+	line-height: 10pt;
+}
+
+.event .repository i {
+	font-size: 30pt;
+	background: #AAA;
+	vertical-align: middle;
+	text-align: center;
+	border-bottom-left-radius: 4px;
 }
