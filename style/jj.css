@@ -5,7 +5,7 @@ html {
 	background: #eee;
 }
 
-div#name {
+#name {
 	font-family: 'Titillium Web', sans-serif;
 	font-size: 18pt;
 	color: #333;
@@ -23,4 +23,8 @@ div#name {
 
 code {
 	font-family: 'Inconsolata', monospace;
+}
+
+#top-section {
+	border-bottom: 1px solid #333;
 }
