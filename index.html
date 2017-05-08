@@ -31,8 +31,20 @@
 
 		<div id="timeline">
 			<span id="line"></span>
+			<div id="events">
+				{{message}}
+			</div>
 		</div>
 
 		<div id="view-resume"><span>View My Resume</span></div>
+
+		<script>
+			window.app = new Vue({
+				el: '#timeline #events',
+				data: {
+					message: 'Hey!'
+				}
+			});
+		</script>
 	</body>
 </html>
