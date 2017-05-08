@@ -1,0 +1,26 @@
+/* CSS for Josh Junon's portfolio site. */
+/* Released under MIT. */
+
+html {
+	background: #eee;
+}
+
+div#name {
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 18pt;
+	color: #333;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+#view-resume {
+	background: #333;
+	color: #ddd;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 10pt;
+	text-transform: uppercase;
+}
+
+code {
+	font-family: 'Inconsolata', monospace;
+}

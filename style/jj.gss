@@ -1,0 +1,29 @@
+// Constraint Layout for Josh Junon's Portfolio site.
+// Released under MIT.
+
+(#view-resume span)[center] == #view-resume[center];
+
+@if ::window[width] < 960 {
+	#name[top] == ::window[top] + 5;
+	#name[left] == (::window[width] / 2) - (#name[intrinsic-width] / 2);
+
+	#view-resume[bottom-left] == ::window[bottom-left];
+	#view-resume[width] == ::window[width];
+	#view-resume[height] == (#view-resume span)[intrinsic-height] + 20;
+
+	#name[font-size] == 25;
+	#view-resume[font-size] == #name[font-size] * 0.90;
+
+} @else {
+	#name[top] == ::window[top] + 10;
+	#name[left] == ::window[left] + 20;
+
+	#view-resume[top] == ::window[top] + 10;
+	#view-resume[right] == ::window[right] - 20;
+	#view-resume[height] == #name[intrinsic-height];
+	#view-resume[width] == 200;
+}
+
+#name[size] == #name[intrinsic-size];
+#view-resume[size] == #view-resume[computed-size];
+(#view-resume span)[size] == (#view-resume span)[intrinsic-size];
