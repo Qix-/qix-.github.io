@@ -25,13 +25,16 @@ code {
 	font-family: 'Inconsolata', monospace;
 }
 
-#top-section, #view-resume {
-	box-shadow: 0px 1px 50px #333;
+@media(max-width: 960px) {
+	#view-resume {
+		box-shadow: 0px -1px 50px #333;
+	}
 }
 
 #top-section {
 	background: #FFF;
 	border-bottom: 1px solid #333;
+	box-shadow: 0px 1px 50px #333;
 	z-index: 100;
 }
 
@@ -43,8 +46,8 @@ code {
 	border-left: 1px dashed #333;
 }
 
-.event-line > .event {
-	background: #ddd;
+.event {
+	background: #fff;
 	border-radius: 4px;
 	overflow: hidden;
 }
@@ -72,7 +75,7 @@ code {
 }
 
 .event .repository i {
-	color: #ccc;
+	color: #888;
 	font-size: 30pt;
 	background: #444;
 	vertical-align: middle;
@@ -82,4 +85,8 @@ code {
 .event-line > .dot {
 	background: #333;
 	border-radius: 11px;
+}
+
+.event-line > .dot-line {
+	background: #333;
 }

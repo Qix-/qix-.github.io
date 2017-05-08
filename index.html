@@ -35,8 +35,9 @@
 		<span id="timeline-line"></span>
 		<div id="timeline">
 			<div id="events">
-				<div class="event-line" v-for="(event, i) in events">
+				<div v-bind:class="'event-line ' + ((i % 2) === 0 ? 'right' : 'left')" v-for="(event, i) in events">
 					<span class="dot"></span>
+					<span class="dot-line"></span>
 					<div v-bind:class="'event ' + ((i % 2) === 0 ? 'right' : 'left')">
 						<div class="date">{{formatEventDate(event.date)}}<sup>{{formatOrdinal(event.date.getDay())}}</sup>, {{event.date.getFullYear()}}</div>
 						<div v-if="event.type === 'repository'" class="content repository">

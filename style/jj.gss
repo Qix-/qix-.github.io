@@ -47,6 +47,20 @@ body {
 			center-x: == ($ #timeline)[center-x];
 		}
 
+		.dot-line {
+			width: == 20;
+			height: == 1;
+			center-y: == (^ > .event)[center-y];
+		}
+
+		&.left .dot-line {
+			right: == (^ .dot)[center-x];
+		}
+
+		&.right .dot-line {
+			left: == (^ .dot)[center-x];
+		}
+
 		.event {
 			@if ::window[width] < 960 {
 				width: == ::window[width] - 20;
@@ -55,10 +69,6 @@ body {
 				width: <= 400;
 				&.left[right] == ::window[center-x] - 20;
 				&.right[left] == ::window[center-x] + 20;
-			}
-
-			> .dot {
-				size: == 10;
 			}
 
 			> .date {
