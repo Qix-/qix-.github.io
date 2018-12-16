@@ -2,96 +2,228 @@
 <html>
 	<head>
 		<title>Josh Junon</title>
-		<meta name="description" content="Josh Junon's portfolio, resume and other information.">
+		<meta name="description" content="Josh Junon's portfolio, CV and other information.">
 		<meta name="author" content="Josh Junon" />
 		<link rel="author" href="https://github.com/qix-" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<script src="vendor/gss.min.js"></script>
-		<script src="vendor/vue.min.js"></script>
-		<script src="script/jj.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/brands.css" integrity="sha384-whKHCkwP9f4MyD1vda26+XRyEg2zkyZezur14Kxc784RxUU1E7HvWVYj9EoJnUV7" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/fontawesome.css" integrity="sha384-WK8BzK0mpgOdhCxq86nInFqSWLzR5UAsNg0MGX9aDaIIrFWQ38dGdhwnNCAoXFxL" crossorigin="anonymous">
 
-		<script>
-			window.engine = new GSS(document);
-		</script>
+		<style>
+			html, body {
+				margin: auto 0;
+				padding: auto 0;
+				width: 100vw;
+				height: 100vh;
+			}
 
-		<link href="https://fonts.googleapis.com/css?family=Inconsolata|Titillium+Web:300" rel="stylesheet" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation-icons/3.0/foundation-icons.min.css" />
-		<link rel="stylesheet" href="vendor/reset.min.css" />
-		<link rel="stylesheet" href="style/jj.css" />
-		<link rel="stylesheet/gss" type="text/gss" href="style/jj.gss" />
+			body {
+				display: grid;
+				grid-template-rows: 1fr 1fr 1fr;
+				grid-template-columns: 1fr 30vw 1fr;
+				font-family: "Anonymous Pro", monospace;
+				font-size: 1rem;
+				background: #111;
+			}
+
+			body > .master {
+				color: #EEE;
+				text-shadow: 1px  0   0 rgba(0, 0, 0, 0.2),
+				            -1px  0   0 rgba(0, 0, 0, 0.2),
+				             0    1px 0 rgba(0, 0, 0, 0.2),
+				             0   -1px 0 rgba(0, 0, 0, 0.2),
+				             1px  1px   rgba(0, 0, 0, 0.2),
+				            -1px -1px 0 rgba(0, 0, 0, 0.2),
+				             1px -1px 0 rgba(0, 0, 0, 0.2),
+				            -1px  1px 0 rgba(0, 0, 0, 0.2);
+			}
+
+			body > div {
+				grid-row: 2 / 3;
+				grid-column: 2 / 3;
+				min-width: 25rem;
+			}
+
+			.master > div, #shift > div > div {
+				margin-top: 2rem;
+			}
+
+			body * {
+				position: relative;
+				transition: transform 2s cubic-bezier(0,.97,.31,1.15);
+			}
+
+			#shift {
+				user-select: none;
+			}
+
+			#shift > * {
+				mix-blend-mode: screen;
+				position: absolute;
+				width: 100%;
+			}
+
+			.code {
+				padding: 0.5rem;
+				background: #222;
+				text-shadow: none;
+				color: #ffd300;
+			}
+
+			.code::before {
+				color: #ff007b;
+				text-shadow: none;
+				content: '$ ';
+			}
+
+			hr {
+				visibility: hidden;
+				margin: 2rem 0;
+			}
+
+			.master h1, .master hr {
+				border: 0;
+				border-bottom: 1px dashed #ff007b;
+				visibility: visible;
+			}
+
+			h1 {
+				padding-bottom: 1rem;
+			}
+
+			a {
+				color: inherit;
+			}
+
+			.social {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 4rem;
+			}
+		</style>
 	</head>
 
 	<body>
-		<!-- I am not a frontend developer. I know this is probably a terrible site.
-		     I haven't written HTML in over 7 years. Forgive me. -->
-
-		<div id="top-section">
-			<div id="name-title">Josh Junon</div>
-			<div id="view-resume"><span>View My Resume</span></div>
-		</div>
-
-		<span id="timeline-line"></span>
-		<div id="timeline">
-			<div id="events">
-				<div v-bind:class="'event-line ' + ((i % 2) === 0 ? 'right' : 'left')" v-for="(event, i) in events">
-					<span class="dot"></span>
-					<span class="dot-line"></span>
-					<div v-bind:class="'event ' + ((i % 2) === 0 ? 'right' : 'left')">
-						<div class="date">{{formatEventDate(event.date)}}<sup>{{formatOrdinal(event.date.getDay())}}</sup>, {{event.date.getFullYear()}}</div>
-						<div v-if="event.type === 'repository'" class="content repository">
-							<a v-bind:href="event.url">
-								<i v-if="event.provider === 'github'" class="fi-social-github"></i>
-								<i v-if="event.provider !== 'github'" class="fi-book"></i>
-								<span class="name">{{event.name}}</span>
-								<span class="description">{{event.description}}</span>
-								<img v-if="event.image" v-bind:src="event.image" />
-							</a>
-						</div>
-					</div>
-				</div>
+		<div class="master">
+			<h1>Josh Junon</h1>
+			<div>
+				<strong>Hello.</strong> I am a software engineer and systems analyst based in Berlin.
+			</div>
+			<div>
+				To read my curriculum vitae:
+			</div>
+			<div class="code noshift">
+				man &lt;( curl -L https://junon.me/cv.7 )
+			</div>
+			<hr />
+			<div class='social'>
+				<a href="https://github.com/qix-"><i class="fab fa-github"></i></a>
 			</div>
 		</div>
 
 		<script>
-			window.app = new Vue({
-				el: '#timeline #events',
-				data: {
-					events: [
-						{
-							type: 'repository',
-							name: 'better-exceptions',
-							provider: 'github',
-							description: 'Pretty and useful exceptions in Python, automatically.',
-							image: 'https://github.com/Qix-/better-exceptions/raw/master/screenshot.png',
-							date: new Date('March 17, 2017'),
-							stars: 1936,
-							url: 'https://github.com/Qix-/better-exceptions'
-						},
-						{
-							type: 'repository',
-							name: 'better-exceptions',
-							provider: 'github',
-							description: 'Pretty and useful exceptions in Python, automatically.',
-							image: 'https://github.com/Qix-/better-exceptions/raw/master/screenshot.png',
-							date: new Date('March 17, 2017'),
-							stars: 1936,
-							url: 'https://github.com/Qix-/better-exceptions'
-						},
-						{
-							type: 'repository',
-							name: 'better-exceptions',
-							provider: 'github',
-							description: 'Pretty and useful exceptions in Python, automatically.',
-							image: 'https://github.com/Qix-/better-exceptions/raw/master/screenshot.png',
-							date: new Date('March 17, 2017'),
-							stars: 1936,
-							url: 'https://github.com/Qix-/better-exceptions'
+			var colors = [
+				'#ffd300',
+				'#ff007b',
+				'#EEEEEE'
+			];
+
+			var innerDiv = document.body.children[0];
+			innerDiv.classList.remove('master');
+
+			var mouseFunctions = [];
+			var updateFunctions = [];
+
+			var shiftDiv = document.createElement('div');
+			shiftDiv.setAttribute('unselectable', 'on');
+			shiftDiv.id = 'shift';
+			document.body.insertBefore(shiftDiv, innerDiv);
+
+			colors.forEach(function (color, i) {
+				var cloned = innerDiv.cloneNode(true);
+				cloned.style.color = color;
+				cloned.style.zIndex = i.toString();
+
+				var offset = i - (colors.length / 2);
+
+				if (i < (colors.length - 1)) {
+					shiftDiv.appendChild(cloned);
+
+					[].slice.call(cloned.children).forEach(function (child) {
+						if (child.classList.contains('noshift')) {
+							return;
 						}
-					]
+
+						var ox = 0;
+						var oy = 0;
+
+						mouseFunctions.push(function (x, y) {
+							var br = child.getBoundingClientRect();
+							var brx = (br.right - br.left) / 2 + br.left;
+							var bry = (br.bottom - br.top) / 2 + br.top;
+							var angle = Math.atan2(bry - y, brx - x);
+							var distance = Math.sqrt(
+								Math.pow(brx - x, 2) +
+								Math.pow(bry - y, 2));
+							angle += offset * (Math.PI / 2);
+							ox = 0.004 * distance * Math.cos(angle);
+							oy = 0.004 * distance * Math.sin(angle);
+						});
+
+						updateFunctions.push(function () {
+							child.style.transform = 'translate(' +
+								ox + 'px,' +
+								oy + 'px)';
+	
+							ox *= 0.8;
+							oy *= 0.8;
+						});
+					});
+				} else {
+					document.body.replaceChild(cloned, innerDiv);
+					cloned.classList.add('master');
 				}
 			});
+
+			innerDiv.remove();
+
+			window.addEventListener('mousemove', function (e) {
+				mouseFunctions.forEach(function (fn) {
+					fn(e.clientX, e.clientY);
+				});
+			});
+
+			function updateAll() {
+				updateFunctions.forEach(function (fn) {
+					fn();
+				});
+			}
+
+			setInterval(updateAll, 30);
+
+			function selectText(elem) {
+				if (document.selection) { // IE
+					var range = document.body.createTextRange();
+					range.moveToElementText(elem);
+					range.select();
+				} else if (window.getSelection) {
+					var range = document.createRange();
+					range.selectNode(elem);
+					window.getSelection().removeAllRanges();
+					window.getSelection().addRange(range);
+				}
+			}
+
+			[].slice.call(document.querySelectorAll('.master .code'))
+				.forEach(function (elem) {
+					elem.addEventListener('click', function () {
+						selectText(elem);
+					});
+				});
 		</script>
 	</body>
 </html>
