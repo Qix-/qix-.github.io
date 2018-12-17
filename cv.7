@@ -1,0 +1,250 @@
+.TH junon 7
+.VB
+.DS
+.nf
+    __         _         __
+ __|  |___ ___| |_    __|  |_ _ ___ ___ ___
+|  |  | . |_ -|   |  |  |  | | |   | . |   |
+|_____|___|___|_|_|  |_____|___|_|_|___|_|_|
+.fi
+.DE
+.VE
+.SH ABOUT
+.HY
+Self-taught open source software developer and systems analyst
+from the United States.
+
+Currently based in Berlin, Germany.
+
+16 years of writing code and fluent in C/C++, Java, Javascript, Python,
+Lua, Objective C, PHP, and several flavors of assembly including GAS,
+NASM, and FASM dialects of x86 (incl. AMD64), 6502, and familiar with
+ARM and MIPS architectures.
+.SH CONTACT
+You may contact me at the following email address:
+
+.RS
+josh@junon.me
+.RE
+.SH LINKS
+Links to relevant profiles or portfolios:
+.NH
+.RS
+.TS
+expand;
+lb rb
+l r.
+SITE	URL
+Github	https://github.com/qix-
+StackOverflow	https://stackoverflow.com/users/510036/qix
+LinkedIn	https://www.linkedin.com/in/iamqix/
+.TE
+.RE
+.SH PROFICIENCIES
+.HY
+.SM The following lists are in no particular order.
+
+I am an expert in:
+.NH
+.RS
+.TS
+expand;
+l l l l.
+distributed-systems	system-design	javascript	python
+java	c	c++	lua
+socket-programming	shell	regex	terra	markdown
+build-systems
+.TE
+.RE
+
+.HY
+I am experienced with:
+.NH
+.RS
+.TS
+expand;
+l l l l.
+c#	hlsl	php	x86-asm
+x64-asm	vector-intrinsics (asm)	objective-c	css
+jq	frontend-design	ux-design	react
+webgl	unity	glsl	babel
+coffeescript	typescript	forth
+.TE
+.RE
+
+.HY
+I am familiar with or have used:
+.NH
+.RS
+.TS
+expand;
+l l l l.
+rust	go	viml	6502-asm
+opencl	spark	terraform	restructured-text
+scss	less
+.TE
+.RE
+.SH PROJECTS
+.HY
+I am a creator or current maintainer of the following projects:
+.NH
+.RS
+.TS
+expand;
+lb cb rb
+l c r.
+NAME	LANGUAGE	URL
+chalk (node.js)	javascript	https://github.com/chalk/chalk
+color (node.js)	javascript	https://github.com/qix-/color
+debug (node.js)	javascript	https://github.com/visionmedia/debug
+arg (node.js)	javascript	https://github.com/zeit/arg
+better-exceptions	python	https://github.com/qix-/better-exceptions
+prtty	c++	https://github.com/anubis/prtty
+clist	c	https://github.com/qix-/clist
+redis-proxy	c	https://github.com/zeit/redis-proxy (unreleased)
+.TE
+.RE
+.SH WORK EXPERIENCE
+.HY
+.TS
+expand;
+lb s
+l r.
+Senior Fullstack Engineer
+Candis, GmbH. (Berlin, Germany)	(Oct 2018 - present)
+.TE
+.RS
+.IP \[bu] 2
+Orchestrate breaking up the flagship product, Candis SmartBooks, from a monorepo to micro-services.
+.I (ongoing)
+.IP \[bu] 2
+Design, implement and manage a complete production infrastructure in order to support the new micro-service architecture - complete with deployment pipeline for Dockerized services.
+.I (ongoing)
+.RE
+.TS
+expand;
+lb s
+l r.
+Chief Scientist (CSO)
+ZEIT, Inc. (San Francisco, CA)	(Feb 2018 - Jun 2018)
+.TE
+.RS
+.IP \[bu] 2
+Designed the implementation for "slots", a new backend architecture for the Now.sh platform. Conceived by Guillermo Rauch, this system orchestrates Docker containers and uses Redis as a central store in order to manage the scheduling and spinning up of containers in a matter of milliseconds. This system will ultimately replace the company's use of Kubernetes and speed up time-to-unfreeze (scale up from 0 instances) by an order of magnitude, if not more. Lua was used for Redis scripts, Bash was used for the orchestration (since it was easily maintained by all of the engineers and the intent was abundantly clear) and various utilities used by the Bash scripts were written in C, an example being zeit/wait-for (which is now OSS).
+.IP \[bu] 2
+Created zeit/redis-proxy, a RESP proxy written in C using libuv, that sped up all non-MULTI operations by anywhere from 5%-30% using a round-robin connection pooling scheme and taking advantage of UNIX domain sockets. Supports thousands (or more) client-side connections over just a few (anywhere from 1-5 are optimal) outbound (server-side) connections gracefully. Worked closely with Fedor Indutny, one of the founders of libuv and Node.js.
+.IP \[bu] 2
+Spoke at ZEIT Day San Francisco '18 on the new Slots architecture. Video: https://youtu.be/yqACl3tRHNI?t=1483
+.IP \[bu] 2
+Observed and guided design decisions made by the team, including those for logging and metrics ingestion and storage, distributed systems, SDN, and organization-wide code style.
+.IP \[bu] 2
+Contributed to many open-source projects on behalf of the company, including libuv.
+.RE
+.TS
+expand;
+lb s
+l r.
+Software Engineer
+ZEIT, Inc. (San Francisco, CA)	(Jun 2017 - Feb 2018)
+.TE
+.RS
+.IP \[bu] 2
+Designed Atlas alongside Guillermo Rauch. Atlas was an experimental and exploratory project that aimed to replace some of the shortcomings of the company's use of Kubernetes to solve the frequent spinning up/down of services in response to user deployments. Designed to be language agnostic but implemented in Node.js, we designed several distributed, individually scaleable services that performed deployment scheduling and Docker orchestration.
+.IP \[bu] 2
+Provided support for the ZEIT.chat public support Slack channels. Liaised between customer and internal engineering team during outages, providing a two-way line of communication for critical information in order to keep engineers informed of recovery status as well as customers informed on outage status as well as helping them recover gracefully or providing workarounds so as to reduce the effect of the outage altogether.
+.IP \[bu] 2
+Created the internal Javascript code style and linting suite, including a new Git hooks manager (zeit/git-hooks) and a single-command onboarding process for new projects.
+.IP \[bu] 2
+Helped in managing two successful ZEIT Day conferences - Berlin, Germany in September of '17, and San Francisco, California, USA in April of '18. Worked closely with stage managers and our own producer to make sure live feeds were working and the best level of quality was being produced.
+.RE
+.TS
+expand;
+lb s
+l r.
+Software Engineer
+Uber Technologies, Inc. (San Francisco, CA)	(Mar 2016 - Apr 2017)
+.TE
+.RS
+.P
+.B Fiscal Year '17 (FY17) Growth Optimization (GO) and Long Term Forecasting (LTF):
+.IP \[bu] 2
+Implemented spend and budget optimizations between all of our cities in Python. This algorithm, devised by Peter Cohen (also on the LTF team) is able to optimize all of our budgets for our hundreds of Uber cities in roughly 30 seconds.
+.IP \[bu] 2
+Utilized Ninja to wire up all of our features in a neat way in order to generate our thousands of models with the most effective parallelism and the ability to incrementally build our models. This reduced our runtimes for our TM1 model generation step from 3-4 hours to just under 15 minutes.
+.IP \[bu] 2
+Provided "air support" for the data scientists and deep-dived into the codebase in order to fix common engineering problems and to act as a go-to engineer for questions regarding best practices, optimizations and technique.
+.P
+.B EPM:
+.IP \[bu] 2
+Designed a custom CAM authenticator in Java (along with reverse engineering the supplied native libraries) for our TM1 instances that set up an environment to perform OneLogin token authentication with the goal of removing extra login steps on the front end and having a seamless and secure single-sign-on experience with otherwise incompatible software (Cognos TM1)
+.P
+.B People Growth:
+.IP \[bu] 2
+Working with other engineers to analyze employee meeting schedules, usage of internal tools, PTO and other metrics to attempt to calculate and report on the stress, attrition and potential for burn-out via a dashboard tailored for each individual employee
+.IP \[bu] 2
+Written RFCs for both data abstraction and privacy strategies within our data (without encryption), as well as an RFC for an access control and permissions management service that compliments the various authentication schemes in use at Uber
+.RE
+.TS
+expand;
+lb s
+l r.
+Interactive Developer (Contract Position)
+Dot Dot Dash, Inc. (Portland, OR)	(Oct 2015 - Jan 2016)
+.TE
+.RS
+.IP \[bu] 2
+Wrote and optimized a Kinect bridge between Windows and MacOS via TCP that allowed us to capture skeletal information from a Kinect V2 via the Kinect SDK and transfer it to a Unity project running on MacOS
+.IP \[bu] 2
+Applied skeletal data to a mesh in Unity to create a Christmas-themed interactive display ultimately displayed on a large LED christmas tree
+.RE
+.TS
+expand;
+lb s
+l r.
+Lead Software Engineer
+On Demand Solutions, Inc. (Boise, ID)	(May 2015 - Oct 2015)
+.TE
+.RS
+.IP \[bu] 2
+Acting Security Officer for HIPAA compliance and inspection for the network and workstations in the office
+.IP \[bu] 2
+Designed and built several libraries and backends using Express + Node.js for small medical companies around the Boise area
+.IP \[bu] 2
+Managed a small team of developers, delegating out design and front end development tasks
+.RE
+.TS
+expand;
+lb s
+l r.
+Interactive Developer
+Drake Cooper (Boise, ID)	(Jul 2014 - Feb 2015)
+.TE
+.RS
+.IP \[bu] 2
+PHP backend engineering for WordPress-based sites, involving abstractions to improve our workflow and cut down on time spent designing and implementing complex data structures and content entry.
+.IP \[bu] 2
+Node.JS development for various projects, daemons, utilities, and scripts.
+.IP \[bu] 2
+Other languages I've used as one-offs include C, C++, Objective C, Java, OpenGL and OpenCL (their associated C subsets for shaders and kernels, respectively), and tons of Javascript.
+.RE
+.SH NOTABLE CONTRIBUTIONS
+.HY
+I have contributed to the following Github projects (ordered by notability,
+impact, or volume):
+.NH
+.RS
+.TS
+expand;
+l l l l.
+libuv/libuv	nodejs/node	systemd/systemd	visionmedia/debug
+zdevito/terra	zeit/redis-proxy	zeit/now-cli	zeit/hyper
+chalk/chalk	zeit/best	zeit/arg	chalk/supports-color
+avajs/ava	xojs/xo	yarnpkg/yarn	chalk/ansi-regex
+npm/npm	boyerjohn/rapidstring	cmuratori/meow_hash	anubis/prtty
+uber/okbuck	zeit/wait-for	zeit/micro	gabime/spdlog
+zeit/title	prettier/prettier	chriso/lru	travis-ci/travis-ci
+rgbkrk/covfefe	nwjs/nw.js	rethinkdb/rethinkdb
+.TE
+.RE
+.SH REFERENCES
+References available upon request.
