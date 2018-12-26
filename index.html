@@ -44,7 +44,7 @@
 			body > div {
 				grid-row: 2 / 3;
 				grid-column: 2 / 3;
-				min-width: 25rem;
+				margin: 1rem;
 			}
 
 			.master > div, #shift > div > div {
@@ -116,8 +116,14 @@
 			<div>
 				To read my curriculum vitae:
 			</div>
-			<div class="code noshift">
-				man &lt;( curl -L https://junon.me/cv.7 )
+			<div class="noshift code">
+				man &lt;( curl -L junon.me/cv.7 )
+			</div>
+			<div class="onlyforosx">
+				If you're running MacOS:
+			</div>
+			<div class="noshift code onlyforosx">
+				curl -L junon.me/cv.7 &gt; /tmp/junon.7; man /tmp/junon.7
 			</div>
 			<hr />
 			<div class='social'>
@@ -224,6 +230,14 @@
 						selectText(elem);
 					});
 				});
+
+			var isMacUser = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i);
+			if (!isMacUser) {
+				[].slice.call(document.querySelectorAll('.onlyforosx'))
+					.forEach(function (elem) {
+						elem.remove();
+					});
+			}
 		</script>
 	</body>
 </html>
