@@ -231,13 +231,14 @@
 					});
 				});
 
-			var isMacUser = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i);
-			if (!isMacUser) {
-				[].slice.call(document.querySelectorAll('.onlyforosx'))
-					.forEach(function (elem) {
-						elem.remove();
-					});
-			}
+			// probably best to leave it in there for mobile users... *sigh* thanks bsd.
+			//var isMacUser = navigator.platform.match(/(Mac|iPhone|iPod|iPad)/i);
+			//if (!isMacUser) {
+			//	[].slice.call(document.querySelectorAll('.onlyforosx'))
+			//		.forEach(function (elem) {
+			//			elem.remove();
+			//		});
+			//}
 		</script>
 	</body>
 </html>
