@@ -2,4 +2,4 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 set -x
-man -t ./cv.7 | ps2pdf - ${1-JoshJunonCV.pdf}
+cat cv.7 | sed -e 's/^\.\.$//' -e 's/^\\"\.\./../' | man -t /dev/stdin | ps2pdf - ${1-JoshJunonCV.pdf}
