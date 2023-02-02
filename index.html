@@ -104,6 +104,17 @@
 				justify-content: center;
 				font-size: 4rem;
 			}
+
+			code {
+				font-family: monospace;
+				background: rgba(255, 255, 255, 0.1);
+				border-radius: 0.25rem;
+				padding: 0 0.25rem;
+			}
+
+			code::before, code::after {
+				content: '`';
+			}
 		</style>
 	</head>
 
@@ -114,7 +125,7 @@
 				<strong>Hello.</strong> I am a software engineer and systems analyst based in Berlin.
 			</div>
 			<div>
-				To read my curriculum vitae:
+				To read my curriculum vitae (<code>bash</code> or <code>sh</code>):
 			</div>
 			<div class="noshift code">
 				man &lt;( curl -sL junon.me/cv.7 )
